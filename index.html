@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Dental Clinic Amman | Best Cosmetic Dentistry Jordan</title>
+    <meta name="description" content="Hollywood Smiles & Implants in Jabal Hussein by Dr. Abeer Saleh Abdullah—10+ Years Experience. Teeth Whitening, Veneers, and Family Care in Amman.">
+    <meta property="og:image" content="data:image/svg+xml;base64,PHN2Zz48L3N2Zz4=">
+    <style>
+        :root {
+            --primary: #008080; /* Teal */
+            --primary-dark: #005f5f;
+            --accent: #E6C288; /* Sand/Petra */
+            --text: #333;
+            --bg: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --curve: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.lang-ar { direction: rtl; text-align: right; }
+        
+        /* Language Display Logic */
+        [data-lang="ar"] { display: none; }
+        body.lang-ar [data-lang="en"] { display: none; }
+        body.lang-ar [data-lang="ar"] { display: inline; }
+        body.lang-ar blockquote, body.lang-ar p, body.lang-ar h1, body.lang-ar h2, body.lang-ar h3 { font-family: 'Tahoma', sans-serif; }
+
+        /* Navigation */
+        header {
+            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px); z-index: 1000; box-shadow: var(--shadow);
+            display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%;
+        }
+
+        .logo {
+            width: 50px; height: 50px; background: var(--primary);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: bold; font-size: 1.2rem; position: relative;
+        }
+        .logo::before { content: 'ED'; font-family: cursive; }
+
+        .nav-menu { list-style: none; display: flex; gap: 20px; }
+        .nav-menu a { text-decoration: none; color: var(--text); font-weight: 600; transition: color 0.3s; cursor: pointer; }
+        .nav-menu a:hover { color: var(--primary); }
+
+        .controls { display: flex; gap: 15px; align-items: center; }
+        .lang-btn {
+            background: none; border: 2px solid var(--primary); color: var(--primary);
+            padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold;
+        }
+
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+        .hamburger span { width: 25px; height: 3px; background: var(--primary); transition: 0.3s; }
+
+        /* Hero - Parallax Amman Skyline Abstract */
+        #hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(to bottom, #004d4d 0%, #008080 50%, #f4f4f4 50%, #f4f4f4 100%);
+            background-attachment: fixed; color: var(--white); padding: 0 20px;
+            position: relative;
+        }
+        /* Petra Texture Overlay */
+        #hero::before {
+            content: ''; position: absolute; bottom: 0; width: 100%; height: 50%;
+            background: repeating-linear-gradient(45deg, rgba(230, 194, 136, 0.2) 0, rgba(230, 194, 136, 0.2) 10px, rgba(220, 176, 112, 0.2) 10px, rgba(220, 176, 112, 0.2) 20px);
+            z-index: 0;
+        }
+        
+        .hero-content { z-index: 1; background: rgba(0,0,0,0.3); padding: 40px; border-radius: var(--curve); backdrop-filter: blur(5px); }
+        .hero-content h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+        .cta-btn {
+            padding: 15px 30px; background: var(--accent); color: #333; border: none;
+            border-radius: 30px; font-weight: bold; font-size: 1.1rem; cursor: pointer;
+            transition: transform 0.2s; box-shadow: 0 0 15px var(--accent);
+        }
+        .cta-btn:hover { transform: scale(1.05); }
+
+        /* Sections General */
+        section { padding: 80px 10%; position: relative; }
+        section:nth-child(even) { background: #fff; }
+        h2 { text-align: center; margin-bottom: 40px; color: var(--primary); font-size: 2rem; }
+
+        /* About */
+        #about { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
+        .headshot {
+            width: 200px; height: 200px; background: #ddd; border-radius: 50%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-size: 4rem; position: relative; border: 5px solid var(--primary);
+        }
+        .headshot figcaption { font-size: 1rem; margin-top: 10px; font-weight: bold; color: var(--primary); }
+        .bio-text { max-width: 600px; line-height: 1.6; }
+        .cert-list { list-style: none; margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .cert-list li::before { content: '✓'; color: var(--primary); margin-right: 5px; margin-left: 5px; font-weight: bold; }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card {
+            background: var(--white); padding: 30px; border-radius: var(--curve);
+            box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,128,128,0.2); }
+        .service-card h3 { margin: 20px 0 10px; color: var(--primary-dark); }
+        .service-icon { margin-bottom: 15px; display: flex; justify-content: center; align-items: center; height: 50px; width: 50px; }
+        
+        /* Unique Service Icons */
+        .icon-veneers::before { content: ''; border-top: 4px solid var(--primary); width: 40px; height: 25px; border-radius: 50% 50% 0 0; display: block; }
+        .icon-whitening::before { content: ''; width: 35px; height: 35px; border: 3px dashed var(--primary); border-radius: 50%; animation: spin 4s linear infinite; display: block; }
+        .icon-implants::before { content: '↓↑'; color: var(--primary); font-size: 2rem; font-weight: bold; }
+        .icon-crowns::before { content: ''; width: 30px; height: 30px; border: 4px solid var(--primary); border-radius: 50% 0 50% 0; display: block; }
+        .icon-fillings::before { content: '🎯'; font-size: 2rem; filter: hue-rotate(140deg); }
+        .icon-root::before { content: ''; width: 30px; height: 20px; background: var(--primary); clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%); display: block; }
+        .icon-gums::before { content: '∼∼'; color: var(--primary); font-size: 2rem; letter-spacing: -5px; }
+        .icon-kids::before { content: '★'; color: var(--accent); font-size: 2.5rem; animation: twinkle 1.5s infinite alternate; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes twinkle { from { opacity: 0.4; } to { opacity: 1; } }
+
+        /* Spotlights */
+        .spotlight-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .spotlight-card { background: #f0f8f8; padding: 20px; border-radius: var(--curve); border-left: 5px solid var(--primary); }
+        body.lang-ar .spotlight-card { border-left: none; border-right: 5px solid var(--primary); }
+        .spotlight-details { display: none; margin-top: 10px; font-size: 0.9rem; color: #555; padding-top: 10px; border-top: 1px solid #ccc; }
+        .spotlight-toggle { color: var(--primary); cursor: pointer; font-size: 0.8rem; text-decoration: underline; margin-top: 5px; display: inline-block; }
+
+        /* Testimonials Carousel */
+        #testimonials { background: var(--primary); color: white; overflow: hidden; text-align: center; }
+        #testimonials h2 { color: white; }
+        .carousel-container { position: relative; height: 250px; display: flex; justify-content: center; align-items: center; }
+        .t-card {
+            position: absolute; width: 80%; max-width: 600px; opacity: 0; transform: translateX(50px) scale(0.9); transition: all 0.5s ease;
+            background: rgba(255,255,255,0.1); padding: 30px; border-radius: var(--curve); backdrop-filter: blur(5px);
+        }
+        .t-card.active { opacity: 1; transform: translateX(0) scale(1); z-index: 2; }
+        .stars { color: var(--accent); font-size: 1.5rem; margin-bottom: 10px; display: inline-block; animation: burst 1s; }
+        .badge { background: var(--accent); color: #333; padding: 2px 8px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; vertical-align: middle; margin: 0 5px; }
+        
+        @keyframes burst { 0% { transform: scale(1); } 50% { transform: scale(1.3); } 100% { transform: scale(1); } }
+
+        /* FAQ */
+        dl { max-width: 800px; margin: 0 auto; }
+        dt {
+            background: #fff; padding: 15px; border-bottom: 1px solid #eee; font-weight: bold; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        dt::after { content: '+'; font-size: 1.5rem; color: var(--primary); }
+        dt.open::after { content: '-'; }
+        dd { max-height: 0; overflow: hidden; background: #f9f9f9; padding: 0 15px; transition: max-height 0.3s ease, padding 0.3s ease; }
+        dd.open { padding: 15px; max-height: 200px; }
+
+        /* Blog */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .blog-card { background: white; border-radius: var(--curve); box-shadow: var(--shadow); overflow: hidden; }
+        .blog-thumb { height: 150px; background: var(--primary-dark); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; }
+        .blog-content { padding: 20px; }
+        .blog-content a { color: var(--primary); font-weight: bold; text-decoration: none; cursor: pointer; }
+
+        /* Booking Form */
+        #booking { background: var(--accent); }
+        .booking-form { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: var(--curve); box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+        button[type="submit"] { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        button[type="submit"]:hover { background: var(--primary-dark); }
+
+        /* Footer */
+        footer { background: #222; color: #aaa; padding: 50px 10%; text-align: center; }
+        .footer-logo { display: inline-block; width: 40px; height: 40px; background: var(--primary); border-radius: 50%; color: white; line-height: 40px; margin-bottom: 20px; font-weight: bold; }
+        .ig-link { color: var(--accent); text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px; }
+        
+        /* Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7);
+            z-index: 2000; display: none; justify-content: center; align-items: center; padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: white; padding: 40px; border-radius: var(--curve); max-width: 600px; width: 100%;
+            position: relative; max-height: 90vh; overflow-y: auto;
+        }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 2rem; cursor: pointer; line-height: 1; }
+        body.lang-ar .close-modal { right: auto; left: 15px; }
+        .modal-body h3 { color: var(--primary); margin-bottom: 15px; }
+        .modal-price { background: #f0f8f8; padding: 10px; border-radius: 5px; margin: 15px 0; font-weight: bold; color: var(--primary-dark); }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: absolute; top: 70px; right: 0; background: white; width: 100%; flex-direction: column;
+                align-items: center; padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.1); clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: 0.4s ease-in-out;
+            }
+            .nav-menu.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+            .hamburger { display: flex; }
+            #hero h1 { font-size: 1.8rem; }
+            .cert-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="lang-en">
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body-content" class="modal-body"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo"></div>
+        <button class="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="#hero" data-lang="en">Home</a><a href="#hero" data-lang="ar">الرئيسية</a></li>
+            <li><a href="#about" data-lang="en">About</a><a href="#about" data-lang="ar">عن الطبيبة</a></li>
+            <li><a href="#services" data-lang="en">Services</a><a href="#services" data-lang="ar">الخدمات</a></li>
+            <li><a href="#spotlights" data-lang="en">Spotlights</a><a href="#spotlights" data-lang="ar">قصص نجاح</a></li>
+            <li><a href="#testimonials" data-lang="en">Reviews</a><a href="#testimonials" data-lang="ar">آراء العملاء</a></li>
+            <li><a href="#booking" data-lang="en">Book Now</a><a href="#booking" data-lang="ar">احجز موعدك</a></li>
+        </ul>
+        <div class="controls">
+            <button class="lang-btn" id="lang-toggle">عربي</button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 data-lang="en">Your Confident Smile Starts Here</h1>
+            <h1 data-lang="ar">ابتسامتك المشرقة تبدأ من هنا</h1>
+            <p data-lang="en">Modern cosmetic & family care in Jabal Al-Hussein with 10+ years of excellence.</p>
+            <p data-lang="ar">رعاية تجميلية وعائلية حديثة في جبل الحسين بخبرة تزيد عن 10 سنوات.</p>
+            <button class="cta-btn" onclick="smoothScroll('#booking')" data-lang="en">Free Consult</button>
+            <button class="cta-btn" onclick="smoothScroll('#booking')" data-lang="ar">استشارة مجانية</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="headshot">
+            <span style="font-size: 3rem;">👩‍⚕️</span>
+            <figcaption data-lang="en">Dr. Abeer</figcaption>
+            <figcaption data-lang="ar">د. عبير</figcaption>
+        </div>
+        <div class="bio-text">
+            <h2 data-lang="en">About Dr. Abeer Saleh Abdullah</h2>
+            <h2 data-lang="ar">عن الدكتورة عبير صالح عبدالله</h2>
+            <p data-lang="en">With over 10 years of experience in cosmetic and family dentistry, Dr. Abeer holds a Bachelor of Dental Surgery from JUST and a Postgraduate in Prosthodontics from the University of Michigan, USA. She specializes in Hollywood Smile transformations and uses advanced German Dentamax/WP instruments and laser technology for pain-free procedures. Passionate about empowering Amman families, she integrates lifestyle tips like Eid prep whitening into her care.</p>
+            <p data-lang="ar">بخبرة تزيد عن 10 سنوات في طب الأسنان التجميلي والعائلي، تحمل د. عبير شهادة البكالوريوس من جامعة العلوم والتكنولوجيا (JUST) ودراسات عليا في التركيبات من جامعة ميشيغان، أمريكا. متخصصة في ابتسامة هوليوود وتستخدم أحدث أدوات Dentamax الألمانية وتقنيات الليزر لعلاج بدون ألم. شغوفة بتمكين العائلات في عمان بابتسامات واثقة.</p>
+            <ul class="cert-list">
+                <li><span data-lang="en">Hollywood Smile & Veneers</span><span data-lang="ar">ابتسامة هوليوود والفينير</span></li>
+                <li><span data-lang="en">Dental Implants</span><span data-lang="ar">زراعة الأسنان</span></li>
+                <li><span data-lang="en">Pediatric Dentistry</span><span data-lang="ar">طب أسنان الأطفال</span></li>
+                <li><span data-lang="en">Laser Certified</span><span data-lang="ar">معتمدة في العلاج بالليزر</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 data-lang="en">Our Services</h2>
+        <h2 data-lang="ar">خدماتنا</h2>
+        <div class="services-grid">
+            <div class="service-card" onclick="openServiceModal('veneers')">
+                <div class="service-icon icon-veneers"></div>
+                <h3 data-lang="en">Hollywood Smile</h3><h3 data-lang="ar">ابتسامة هوليوود</h3>
+                <p data-lang="en">Premium porcelain veneers.</p><p data-lang="ar">قشور خزفية عالية الجودة.</p>
+            </div>
+            <div class="service-card" onclick="openServiceModal('whitening')">
+                <div class="service-icon icon-whitening"></div>
+                <h3 data-lang="en">Teeth Whitening</h3><h3 data-lang="ar">تبييض الأسنان</h3>
+                <p data-lang="en">Laser-activated brightness.</p><p data-lang="ar">بياض فوري بالليزر.</p>
+            </div>
+            <div class="service-card" onclick="openServiceModal('implants')">
+                <div class="service-icon icon-implants"></div>
+                <h3 data-lang="en">Dental Implants</h3><h3 data-lang="ar">زراعة الأسنان</h3>
+                <p data-lang="en">Lifelong stability.</p><p data-lang="ar">ثبات مدى الحياة.</p>
+            </div>
+            <div class="service-card" onclick="openServiceModal('crowns')">
+                <div class="service-icon icon-crowns"></div>
+                <h3 data-lang="en">Crowns & Bridges</h3><h3 data-lang="ar">تيجان وجسور</h3>
+                <p data-lang="en">Durable restorations.</p><p data-lang="ar">ترميمات دائمة.</p>
+            </div>
+            <div class="service-card" onclick="openServiceModal('fillings')">
+                <div class="service-icon icon-fillings"></div>
+                <h3 data-lang="en">Cosmetic Fillings</h3><h3 data-lang="ar">حشوات تجميلية</h3>
+                <p data-lang="en">Invisible repairs.</p><p data-lang="ar">إصلاحات غير مرئية.</p>
+            </div>
+            <div class="service-card" onclick="openServiceModal('root')">
+                <div class="service-icon icon-root"></div>
+                <h3 data-lang="en">Root Canal</h3><h3 data-lang="ar">علاج العصب</h3>
+                <p data-lang="en">Pain-free nerve care.</p><p data-lang="ar">علاج عصب بدون ألم.</p>
+            </div>
+            <div class="service-card" onclick="openServiceModal('gums')">
+                <div class="service-icon icon-gums"></div>
+                <h3 data-lang="en">Gum Treatment</h3><h3 data-lang="ar">علاج اللثة</h3>
+                <p data-lang="en">Therapeutic scaling.</p><p data-lang="ar">تنظيف وعلاج.</p>
+            </div>
+            <div class="service-card" onclick="openServiceModal('kids')">
+                <div class="service-icon icon-kids"></div>
+                <h3 data-lang="en">Pediatric Dentistry</h3><h3 data-lang="ar">طب أسنان الأطفال</h3>
+                <p data-lang="en">Gentle & Fun.</p><p data-lang="ar">لطيف وممتع.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="spotlights">
+        <h2 data-lang="en">Patient Spotlights</h2>
+        <h2 data-lang="ar">قصص من الواقع</h2>
+        <ul class="spotlight-list">
+            <li class="spotlight-card">
+                <h3 data-lang="en">Whitening for Busy Pros</h3><h3 data-lang="ar">تبييض للمشغولين</h3>
+                <p data-lang="en">1hr lunch session, 25 JD—beat Amman coffee stains without downtime.</p>
+                <p data-lang="ar">جلسة ساعة واحدة، 25 دينار - تخلص من تصبغات القهوة في استراحة الغداء.</p>
+                <span class="spotlight-toggle" onclick="toggleSpotlight(this)">More / المزيد</span>
+                <div class="spotlight-details">
+                    <span data-lang="en">Perfect for professionals in Abdali. Get in, get bright, and get back to meetings. Dr. Abeer uses protective gel to ensure zero sensitivity so you can enjoy your evening tea.</span>
+                    <span data-lang="ar">مثالي للموظفين في العبدلي. احصل على أسنان ناصعة وعد للاجتماعات فوراً. تستخدم د. عبير جل واقي لضمان عدم التحسس لتستمتع بشاي المساء.</span>
+                </div>
+            </li>
+            <li class="spotlight-card">
+                <h3 data-lang="en">Implants for Foodies</h3><h3 data-lang="ar">زراعة لعشاق الطعام</h3>
+                <p data-lang="en">Back to eating Mansaf without worry! Secure titanium roots.</p>
+                <p data-lang="ar">عد لتناول المنسف دون قلق! جذور تيتانيوم آمنة.</p>
+                <span class="spotlight-toggle" onclick="toggleSpotlight(this)">More / المزيد</span>
+                <div class="spotlight-details">
+                    <span data-lang="en">Omar from Jabal Hussein struggled with loose dentures. After a minimally invasive implant procedure (400 JD), he's enjoying lamb and jameed like never before.</span>
+                    <span data-lang="ar">عانى عمر من جبل الحسين من طقم أسنان غير ثابت. بعد زراعة الأسنان (400 دينار)، أصبح يستمتع باللحم والجميد كما لم يفعل من قبل.</span>
+                </div>
+            </li>
+            <li class="spotlight-card">
+                <h3 data-lang="en">Eid Prep Veneers</h3><h3 data-lang="ar">فينير استعداداً للعيد</h3>
+                <p data-lang="en">2-week transformation for the perfect family gathering photos.</p>
+                <p data-lang="ar">تحول كامل في أسبوعين لصور عائلية مثالية.</p>
+                <span class="spotlight-toggle" onclick="toggleSpotlight(this)">More / المزيد</span>
+                <div class="spotlight-details">
+                    <span data-lang="en">Custom designed digital smile. We schedule temporary fittings so you never go without teeth, finalizing the porcelain just in time for the holiday.</span>
+                    <span data-lang="ar">ابتسامة رقمية مصممة خصيصاً. نجدول تركيبات مؤقتة حتى لا تبقى بدون أسنان، وننهي الخزف في الوقت المناسب للعطلة.</span>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="testimonials">
+        <h2 data-lang="en">What Amman Says</h2>
+        <h2 data-lang="ar">آراء أهل عمان</h2>
+        <div class="carousel-container" id="carousel-track">
+            <div class="t-card active">
+                <div class="stars">★★★★★</div>
+                <p data-lang="en">"Dr. Abeer transformed my Eid smile with veneers—natural glow for family photos!"</p>
+                <p data-lang="ar">"دكتورة عبير غيرت ابتسامتي في العيد بالفينير—توهج طبيعي لصور العائلة!"</p>
+                <br><small>- Fatima Al-Mansour, Amman <span class="badge">Veneers</span></small>
+            </div>
+            <div class="t-card">
+                <div class="stars">★★★★★</div>
+                <p data-lang="en">"Painless implants let me enjoy kunafa again. Best experience in Jabal Hussein."</p>
+                <p data-lang="ar">"زراعة بدون ألم جعلتني أستمتع بالكنافة مرة أخرى. أفضل تجربة في جبل الحسين."</p>
+                <br><small>- Omar Khaled, Jabal Hussein <span class="badge">Implants</span></small>
+            </div>
+            <div class="t-card">
+                <div class="stars">★★★★★</div>
+                <p data-lang="en">"Kids' check-ups are a game now—sealants free! No more tears."</p>
+                <p data-lang="ar">"فحص الأطفال أصبح لعبة—المادة السادة مجانية! لا دموع بعد اليوم."</p>
+                <br><small>- Layla Hassan, Local Mom <span class="badge">Pediatric</span></small>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2 data-lang="en">Common Questions</h2>
+        <h2 data-lang="ar">الأسئلة الشائعة</h2>
+        <dl>
+            <dt onclick="toggleFAQ(this)">
+                <span data-lang="en">Orthodontics options?</span><span data-lang="ar">خيارات تقويم الأسنان؟</span>
+            </dt>
+            <dd>
+                <p data-lang="en">Braces or Invisalign, 300-800 JD; discreet for Amman lifestyle, monthly adjustments included.</p>
+                <p data-lang="ar">تقويم معدني أو شفاف، 300-800 دينار؛ مناسب لنمط الحياة في عمان، يشمل التعديلات الشهرية.</p>
+            </dd>
+            <dt onclick="toggleFAQ(this)">
+                <span data-lang="en">Post-treatment care?</span><span data-lang="ar">العناية ما بعد العلاج؟</span>
+            </dt>
+            <dd>
+                <p data-lang="en">Free follow-ups 6 months; avoid nuts/maamoul first week—IG care reel for Jordan diets.</p>
+                <p data-lang="ar">متابعة مجانية لمدة 6 أشهر؛ تجنب المكسرات والمعمول في الأسبوع الأول.</p>
+            </dd>
+            <dt onclick="toggleFAQ(this)">
+                <span data-lang="en">Do you accept insurance?</span><span data-lang="ar">هل تقبلون التأمين؟</span>
+            </dt>
+            <dd>
+                <p data-lang="en">We provide detailed invoices for reimbursement. Contact us for specific network details.</p>
+                <p data-lang="ar">نقدم فواتير مفصلة للاسترداد. اتصل بنا لمعرفة تفاصيل الشبكات المعتمدة.</p>
+            </dd>
+        </dl>
+    </section>
+
+    <section id="blog">
+        <h2 data-lang="en">Smile Tips</h2>
+        <h2 data-lang="ar">نصائح للابتسامة</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-thumb">🌙</div>
+                <div class="blog-content">
+                    <h3 data-lang="en">Eid Prep Whitening</h3><h3 data-lang="ar">تبييض الأسنان للعيد</h3>
+                    <p data-lang="en">How to get ready for the holidays in 2 weeks.</p><p data-lang="ar">كيف تستعد للعطلة في أسبوعين.</p>
+                    <a onclick="openBlogModal('eid')" data-lang="en">Read More</a><a onclick="openBlogModal('eid')" data-lang="ar">اقرأ المزيد</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-thumb">💧</div>
+                <div class="blog-content">
+                    <h3 data-lang="en">Summer Hydration</h3><h3 data-lang="ar">ترطيب الصيف</h3>
+                    <p data-lang="en">Combating dry mouth in Amman's climate.</p><p data-lang="ar">محاربة جفاف الفم في مناخ عمان.</p>
+                    <a onclick="openBlogModal('dry')" data-lang="en">Read More</a><a onclick="openBlogModal('dry')" data-lang="ar">اقرأ المزيد</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking">
+        <h2 data-lang="en">Book Appointment</h2>
+        <h2 data-lang="ar">حجز موعد</h2>
+        <div class="booking-form">
+            <form onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label data-lang="en">Service</label><label data-lang="ar">الخدمة</label>
+                    <select id="serviceSelect" required>
+                        <option value="Hollywood Smile">Hollywood Smile / ابتسامة هوليوود</option>
+                        <option value="Teeth Whitening">Teeth Whitening / تبييض الأسنان</option>
+                        <option value="Dental Implants">Dental Implants / زراعة الأسنان</option>
+                        <option value="Crowns & Bridges">Crowns & Bridges / تيجان وجسور</option>
+                        <option value="Cosmetic Fillings">Cosmetic Fillings / حشوات تجميلية</option>
+                        <option value="Root Canal">Root Canal / علاج العصب</option>
+                        <option value="Gum Treatment">Gum Treatment / علاج اللثة</option>
+                        <option value="Pediatric Dentistry">Pediatric Dentistry / طب أسنان أطفال</option>
+                        <option value="Wisdom Tooth">Wisdom Tooth / خلع ضرس العقل</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label data-lang="en">Name</label><label data-lang="ar">الاسم</label>
+                    <input type="text" id="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label data-lang="en">Phone</label><label data-lang="ar">رقم الهاتف</label>
+                    <input type="tel" id="clientPhone" required>
+                </div>
+                <button type="submit" data-lang="en">Request Appointment</button>
+                <button type="submit" data-lang="ar">اطلب موعد</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 data-lang="en">Contact & Location</h2>
+        <h2 data-lang="ar">اتصل بنا والموقع</h2>
+        <p data-lang="en" style="text-align:center; margin-bottom:20px;">Using German Dentamax precision tools and digital 3D imaging.</p>
+        <p data-lang="ar" style="text-align:center; margin-bottom:20px;">نستخدم أدوات Dentamax الألمانية الدقيقة والتصوير الرقمي ثلاثي الأبعاد.</p>
+        <div style="background:#eee; height:300px; display:flex; align-items:center; justify-content:center; border-radius:12px;">
+            <span style="color:#777;">Google Maps: Jabal Al-Hussein, Amman</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">ED</div>
+        <p>© 2025 Elevate Dental Clinic. All Rights Reserved.</p>
+        <a href="https://www.instagram.com/elevate_dental_clinic?igsh=MmI4cHBmcTE5dW90" target="_blank" class="ig-link">
+            <span>📸</span> Follow on Instagram
+        </a>
+    </footer>
+
+    <script>
+        // Data for Services
+        const servicesData = {
+            veneers: {
+                en: { title: "Hollywood Smile & Veneers", content: "Custom veneers designed via digital scan for natural results. 2-week process with temporary fittings.<div class='modal-price'>Full Set: 300-600 JD (includes consult)</div>Sub-services: Surgical Extraction (100 JD), Wisdom Tooth Removal (120 JD). IG video shows Amman patient's Eid transformation." },
+                ar: { title: "ابتسامة هوليوود والفينير", content: "فينير مخصص مصمم عبر المسح الرقمي لنتائج طبيعية. عملية تستغرق أسبوعين مع تركيبات مؤقتة.<div class='modal-price'>الطقم الكامل: 300-600 دينار (شامل الاستشارة)</div>خدمات فرعية: خلع جراحي (100 دينار)، خلع ضرس العقل (120 دينار). شاهد فيديو العيد على انستغرام." }
+            },
+            whitening: {
+                en: { title: "Teeth Whitening", content: "Safe 1-hour laser session with take-home gel kit. Ideal for Jordan tea stains.<div class='modal-price'>Starts 25 JD (lasts 6-12 months)</div>Subs: Teeth Cleaning (30 JD). Watch IG reel for before/after." },
+                ar: { title: "تبييض الأسنان", content: "جلسة ليزر آمنة لمدة ساعة مع مجموعة جل منزلية. مثالي لتصبغات الشاي الأردني.<div class='modal-price'>يبدأ من 25 دينار (يدوم 6-12 شهر)</div>خدمات فرعية: تنظيف أسنان (30 دينار). شاهد الفيديو على انستغرام." }
+            },
+            implants: {
+                en: { title: "Dental Implants", content: "Minimally invasive placement with 3-month healing titanium roots.<div class='modal-price'>Single Implant: 400 JD (warranty included)</div>Subs: General Dentistry Consult (Free). Patient story: 'Back to mansaf without worry!'" },
+                ar: { title: "زراعة الأسنان", content: "زراعة بتدخل جراحي بسيط مع فترة شفاء 3 أشهر.<div class='modal-price'>السن الواحد: 400 دينار (شامل الضمان)</div>خدمات فرعية: استشارة عامة (مجانية). قصة مريض: 'عدت لأكل المنسف دون قلق!'" }
+            },
+            crowns: {
+                en: { title: "Crowns & Bridges", content: "Custom-fit porcelain for function and aesthetics.<div class='modal-price'>Crown 150 JD, Bridge 500 JD</div>Subs: Compositions (100 JD). See IG bridge demo for quick recovery." },
+                ar: { title: "التيجان والجسور", content: "بورسلين مخصص للوظيفة والجمال.<div class='modal-price'>تاج 150 دينار، جسر 500 دينار</div>خدمات فرعية: ترميمات (100 دينار). انظر ديمو الجسر على انستغرام." }
+            },
+            fillings: {
+                en: { title: "Cosmetic Fillings", content: "Composite materials blending naturally.<div class='modal-price'>Per tooth: 50 JD (5-10 year durability)</div>Subs: Dental Diseases Check (Free). IG tip: Perfect for Amman sweet tooths." },
+                ar: { title: "حشوات تجميلية", content: "مواد مركبة تندمج بشكل طبيعي.<div class='modal-price'>السن الواحد: 50 دينار (متانة 5-10 سنوات)</div>خدمات فرعية: فحص أمراض الأسنان (مجاناً). نصيحة انستغرام: مثالي لمحبي الحلويات في عمان." }
+            },
+            root: {
+                en: { title: "Root Canal Treatment", content: "Pain-free removal + filling with X-ray.<div class='modal-price'>150 JD (includes follow-up)</div>Subs: Nerve Treatment (included). From IG: 'No discomfort—back to work same day!'" },
+                ar: { title: "علاج العصب", content: "إزالة بدون ألم + حشو مع أشعة.<div class='modal-price'>150 دينار (شامل المتابعة)</div>خدمات فرعية: علاج العصب (مشمول). من انستغرام: 'بدون ألم—عدت للعمل في نفس اليوم!'" }
+            },
+            gums: {
+                en: { title: "Gum Treatment", content: "Deep clean for health and aesthetics.<div class='modal-price'>80 JD session</div>Prevents recession in dry Amman air. Subs: Botox & Fillers (200 JD for grinding)." },
+                ar: { title: "علاج اللثة", content: "تنظيف عميق للصحة والجمال.<div class='modal-price'>الجلسة 80 دينار</div>يمنع التراجع في هواء عمان الجاف. خدمات فرعية: بوتوكس وفيلر (200 دينار للصرير)." }
+            },
+            kids: {
+                en: { title: "Pediatric Dentistry", content: "Exams with games and sealants.<div class='modal-price'>Visit 40 JD (free sealants under 12)</div>Subs: Kids Orthodontics (300 JD). IG reel: 'Smiles without tears!'" },
+                ar: { title: "طب أسنان الأطفال", content: "فحوصات مع ألعاب ومواد سادة.<div class='modal-price'>الزيارة 40 دينار (مادة سادة مجانية تحت 12)</div>خدمات فرعية: تقويم أطفال (300 دينار). ريل انستغرام: 'ابتسامات بلا دموع!'" }
+            }
+        };
+
+        const blogData = {
+            eid: {
+                en: { title: "Eid Prep", content: "Start your whitening journey 2 weeks before Eid. Avoid staining foods like turmeric and dark tea for 48 hours after treatment. Use the prescribed sensitivity gel." },
+                ar: { title: "تحضيرات العيد", content: "ابدأ رحلة التبييض قبل العيد بأسبوعين. تجنب الأطعمة المصبغة مثل الكركم والشاي الداكن لمدة 48 ساعة بعد العلاج. استخدم جل الحساسية الموصوف." }
+            },
+            dry: {
+                en: { title: "Summer Hydration", content: "Amman's dry heat can reduce saliva, increasing cavity risk. Drink 2L of water daily and chew sugar-free gum to stimulate flow." },
+                ar: { title: "ترطيب الصيف", content: "حرارة عمان الجافة قد تقلل اللعاب، مما يزيد خطر التسوس. اشرب 2 لتر ماء يومياً وامضغ علكة خالية من السكر لتحفيز التدفق." }
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Smooth Scroll
+            window.smoothScroll = (target) => {
+                const element = document.querySelector(target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            };
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    smoothScroll(this.getAttribute('href'));
+                });
+            });
+
+            // Toggle Language
+            const langBtn = document.getElementById('lang-toggle');
+            langBtn.addEventListener('click', () => {
+                const body = document.body;
+                if (body.classList.contains('lang-en')) {
+                    body.classList.replace('lang-en', 'lang-ar');
+                    langBtn.textContent = 'English';
+                } else {
+                    body.classList.replace('lang-ar', 'lang-en');
+                    langBtn.textContent = 'عربي';
+                }
+            });
+
+            // Mobile Menu
+            document.querySelector('.hamburger').addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.toggle('active');
+            });
+
+            // Modals
+            const modalOverlay = document.getElementById('modal-overlay');
+            const modalBody = document.getElementById('modal-body-content');
+            
+            window.openServiceModal = (id) => {
+                const lang = document.body.classList.contains('lang-ar') ? 'ar' : 'en';
+                const data = servicesData[id][lang];
+                modalBody.innerHTML = `<h3>${data.title}</h3><p>${data.content}</p>`;
+                modalOverlay.classList.add('active');
+            };
+
+            window.openBlogModal = (id) => {
+                const lang = document.body.classList.contains('lang-ar') ? 'ar' : 'en';
+                const data = blogData[id][lang];
+                modalBody.innerHTML = `<h3>${data.title}</h3><p>${data.content}</p>`;
+                modalOverlay.classList.add('active');
+            };
+
+            document.querySelector('.close-modal').addEventListener('click', () => {
+                modalOverlay.classList.remove('active');
+            });
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+            });
+
+            // Spotlights Toggle
+            window.toggleSpotlight = (el) => {
+                const details = el.nextElementSibling;
+                details.style.display = details.style.display === 'block' ? 'none' : 'block';
+            };
+
+            // FAQ Toggle
+            window.toggleFAQ = (dt) => {
+                dt.classList.toggle('open');
+                dt.nextElementSibling.classList.toggle('open');
+            };
+
+            // Booking Form
+            window.submitBooking = (e) => {
+                e.preventDefault();
+                const service = document.getElementById('serviceSelect').value;
+                const name = document.getElementById('clientName').value;
+                const msg = `Hello, I would like to book an appointment for: ${service}. Name: ${name}`;
+                const waLink = `https://wa.me/962796982720?text=${encodeURIComponent(msg)}`;
+                const lang = document.body.classList.contains('lang-ar') ? 'ar' : 'en';
+                alert(lang === 'en' ? "Thanks! Redirecting to WhatsApp..." : "شكرًا! جاري التحويل إلى واتساب...");
+                window.open(waLink, '_blank');
+            };
+
+            // Carousel Auto Rotation
+            const slides = document.querySelectorAll('.t-card');
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
+
